@@ -1,51 +1,113 @@
+/* Importa a fonte Ephesis do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
 
 body {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('/Users/eduar/Temporada Natal - Youtube/cartao-natalino/imagens/fundo.png');
-    background-position: center;
-    background-size: cover;
-}
-
-.card {
-    background: whitesmoke;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 80px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-
-.icons {
-    height: 150px;
-    overflow: visible;
-}
-
-.title {
-    color: rgb(4, 59, 21);
-    font-size: 80px;
-    font-weight: bold;
-    font-family: 'Ephesis', cursive;
+    display: flex; /* Aplica o layout flexível ao corpo da página */
+    gap: 10px; /* Define um espaço de 10px entre os itens filhos */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    height: 90vh; /* Define a altura do corpo como 90% da altura da janela */
+    background: url('/Users/eduar/Temporada Natal - Youtube/cartao-natalino/imagens/fundo.png'); /* Define a imagem de fundo */
+    background-position: center; /* Centraliza a imagem de fundo */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
 }
 
 .snow {
-    position: fixed;
-    transform: translateY(0);
-    color: white;
-    font-size: 35px;
-    animation: fall 1s linear;
-    top: -10vh;
+    position: absolute; /* Posicionamento absoluto na página */
+    transform: translateY(0); /* Inicia sem deslocamento vertical */
+    color: white; /* Define a cor do floco de neve como branca */
+    font-size: 35px; /* Define o tamanho do floco de neve */
+    animation: fall 1s linear; /* Aplica uma animação linear de 1 segundo chamada 'fall' */
+    top: -10vh; /* Posiciona o floco de neve fora da tela inicialmente */
+}
+
+.christmas-card {
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do cartão */
+    position: relative; /* Define a posição do cartão como relativa */
+    width: 450px; /* Define a largura do cartão */
+    height: 500px; /* Define a altura do cartão */
+    background-color: #9eecf1; /* Define a cor de fundo do cartão */
+    box-shadow: 15px 1px 50px rgba(0, 0, 0, .2); /* Aplica uma sombra ao redor do cartão */
+    border-radius: 10px; /* Arredonda as bordas do cartão */
+}
+
+.christmas-card:before {
+    content: ""; /* Cria um pseudo-elemento sem conteúdo */
+    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta */
+    width: 550px; /* Define a largura do pseudo-elemento */
+    height: 250px; /* Define a altura do pseudo-elemento */
+    background-color: white; /* Define a cor de fundo como branca */
+    border-radius: 50%; /* Arredonda o pseudo-elemento */
+    top: 360px; /* Posiciona o pseudo-elemento verticalmente */
+    left: -25px; /* Posiciona o pseudo-elemento horizontalmente */
+    box-shadow: -130px -10px #f8f9fa, 80px -20px #e9ecef; /* Aplica sombras para efeito 3D */
+}
+
+.icons {
+    position: absolute; /* Posiciona o container de ícones de forma absoluta */
+    height: 150px; /* Define a altura do container de ícones */
+    overflow: visible; /* Permite que os ícones ultrapassem os limites do container */
+    top: 280px; /* Posiciona o container verticalmente */
+    left: 70px; /* Posiciona o container horizontalmente */
+}
+
+.wishes {
+    color: white; /* Define a cor do texto dos desejos como branca */
+    position: relative; /* Define a posição do container de desejos como relativa */
+    width: 350px; /* Define a largura do container */
+}
+
+.feliz,
+.natal {
+    position: relative; /* Define a posição dos textos 'feliz' e 'natal' como relativa */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites */
+}
+
+.feliz {
+    top: 0; /* Posiciona o texto 'feliz' no topo do container */
+    height: 30px; /* Define a altura do texto 'feliz' */
+}
+
+.natal {
+    top: 0; /* Posiciona o texto 'natal' no topo do container */
+    height: 60px; /* Define a altura do texto 'natal' */
+}
+
+.feliz:before,
+.natal:before {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    width: 450px; /* Define a largura dos pseudo-elementos */
+    position: absolute; /* Posiciona os pseudo-elementos de forma absoluta */
+}
+
+@keyframes slideUp {
+    /* Animação para subir o texto 'feliz' */
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-30px); opacity: 1; }
+}
+
+@keyframes slideUp2 {
+    /* Animação para subir o texto 'natal' */
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-40px); opacity: 1; }
 }
 
 @keyframes fall {
-    to {
-        transform: translateY(115vh);
-    }
+    /* Animação para o movimento de queda dos flocos de neve */
+    0% { top: -50px; }
+    100% { top: 900px; }
+}
+
+.feliz:before {
+    content: "FELIZ"; /* Define o conteúdo do pseudo-elemento como 'FELIZ' */
+    font-size: 45px; /* Define o tamanho da fonte */
+    top: 20px; /* Posiciona o pseudo-elemento verticalmente */
+    animation: slideUp ease .4s forwards .4s; /* Aplica a animação 'slideUp' */
+}
+
+.natal:before {
+    content: "NATAL"; /* Define o conteúdo do pseudo-elemento como 'NATAL' */
+    font-size: 60px; /* Define o tamanho da fonte */
+    top: 47px; /* Posiciona o pseudo-elemento verticalmente */
+    animation: slideUp2 ease .4s forwards .8s; /* Aplica a animação 'slideUp2' */
 }

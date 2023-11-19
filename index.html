@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,22 +7,25 @@
     <link rel="stylesheet" href="_css/style.css" />
     <title>Document</title>
 </head>
-
 <body>
-    <div class="card">
+    <div class="christmas-card">
+        <!-- Imagem decorativa no topo do cartão -->
         <div class="icon-topo">
             <img src="imagens/decoracao.svg" />
         </div>
-        <div class="text">
-            <h2 class="title">Feliz Natal!</h2>
+        <!-- Texto de Feliz Natal animado -->
+        <div class="wishes">
+            <div class="feliz"></div>
+            <div class="natal"></div>
         </div>
+        <!-- Imagens de árvore e casa de Natal -->
         <div class="icons">
             <img src="imagens/arvore.svg" />
             <img src="imagens/casa.svg" />
         </div>
     </div>
+    <!-- Importação do GSAP e do script JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="_javascript/script.js"></script>
 </body>
-
 </html>
