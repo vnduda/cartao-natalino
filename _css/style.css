@@ -1,113 +1,163 @@
-/* Importa a fonte Ephesis do Google Fonts */
+/* Importa as fontes Ephesis e Poppins do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+/* Estilos base para o corpo do documento, centralizando todo o conteúdo */
 body {
-    display: flex; /* Aplica o layout flexível ao corpo da página */
-    gap: 10px; /* Define um espaço de 10px entre os itens filhos */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: center; /* Centraliza os itens verticalmente */
-    height: 90vh; /* Define a altura do corpo como 90% da altura da janela */
-    background: url('/Users/eduar/Temporada Natal - Youtube/cartao-natalino/imagens/fundo.png'); /* Define a imagem de fundo */
-    background-position: center; /* Centraliza a imagem de fundo */
-    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    height: 100vh; /* 100% da altura da viewport */
+    display: flex; /* Usa Flexbox para alinhamento */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 }
 
+/* Estilos para os flocos de neve */
 .snow {
-    position: absolute; /* Posicionamento absoluto na página */
+    position: absolute; /* Posicionamento absoluto em relação ao seu contêiner mais próximo com posição relativa ou absoluta */
     transform: translateY(0); /* Inicia sem deslocamento vertical */
-    color: white; /* Define a cor do floco de neve como branca */
-    font-size: 35px; /* Define o tamanho do floco de neve */
-    animation: fall 1s linear; /* Aplica uma animação linear de 1 segundo chamada 'fall' */
-    top: -10vh; /* Posiciona o floco de neve fora da tela inicialmente */
+    color: white; /* Cor branca para o texto (floco de neve) */
+    font-size: 35px; /* Tamanho do texto (floco de neve) */
+    animation: fall 1s linear; /* Aplica a animação 'fall' com duração de 1 segundo em estilo linear */
+    top: -10vh; /* Posiciona os flocos de neve acima da tela para começarem fora da vista */
 }
 
-.christmas-card {
-    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do cartão */
-    position: relative; /* Define a posição do cartão como relativa */
-    width: 450px; /* Define a largura do cartão */
-    height: 500px; /* Define a altura do cartão */
-    background-color: #9eecf1; /* Define a cor de fundo do cartão */
-    box-shadow: 15px 1px 50px rgba(0, 0, 0, .2); /* Aplica uma sombra ao redor do cartão */
-    border-radius: 10px; /* Arredonda as bordas do cartão */
+/* Estilos para o cartão de natal */
+.card {
+    overflow: hidden; /* Esconde o conteúdo que ultrapassa os limites do cartão */
+    position: relative; /* Posição relativa para posicionar os filhos absolutamente dentro do cartão */
+    width: 450px; /* Largura do cartão */
+    height: 500px; /* Altura do cartão */
+    background-color: #9eecf1; /* Cor de fundo azul claro para o cartão */
+    box-shadow: 15px 1px 50px rgba(0, 0, 0, .2); /* Sombra ao redor do cartão */
+    border-radius: 10px; /* Bordas arredondadas */
 }
 
-.christmas-card:before {
-    content: ""; /* Cria um pseudo-elemento sem conteúdo */
-    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta */
-    width: 550px; /* Define a largura do pseudo-elemento */
-    height: 250px; /* Define a altura do pseudo-elemento */
-    background-color: white; /* Define a cor de fundo como branca */
-    border-radius: 50%; /* Arredonda o pseudo-elemento */
-    top: 360px; /* Posiciona o pseudo-elemento verticalmente */
-    left: -25px; /* Posiciona o pseudo-elemento horizontalmente */
-    box-shadow: -130px -10px #f8f9fa, 80px -20px #e9ecef; /* Aplica sombras para efeito 3D */
+/* Pseudo-elemento para estilização adicional */
+.card:before {
+    content: ""; /* Pseudo-elementos precisam da propriedade 'content' */
+    position: absolute; /* Posicionamento absoluto dentro do cartão */
+    width: 550px; /* Largura maior que o cartão para efeito de fundo */
+    height: 250px; /* Altura para o efeito de fundo */
+    background-color: white; /* Cor de fundo branca */
+    border-radius: 50%; /* Transforma em forma circular/oval */
+    top: 300px; /* Posicionamento a partir do topo do cartão */
+    left: -25px; /* Posicionamento a partir da esquerda do cartão */
+    box-shadow: -130px -10px #f8f9fa, 80px -20px #e9ecef; /* Sombras múltiplas para efeito visual */
 }
 
+/* Estilos para os ícones dentro do cartão */
 .icons {
-    position: absolute; /* Posiciona o container de ícones de forma absoluta */
-    height: 150px; /* Define a altura do container de ícones */
-    overflow: visible; /* Permite que os ícones ultrapassem os limites do container */
-    top: 280px; /* Posiciona o container verticalmente */
-    left: 70px; /* Posiciona o container horizontalmente */
+    position: absolute; /* Posicionamento absoluto dentro do cartão */
+    height: 150px; /* Altura para o contêiner dos ícones */
+    overflow: visible; /* Permite que os ícones sejam visíveis mesmo fora do contêiner */
+    top: 280px; /* Posicionamento vertical */
+    left: 70px; /* Posicionamento horizontal */
 }
 
+/* Estilos para os desejos de natal dentro do cartão */
 .wishes {
-    color: white; /* Define a cor do texto dos desejos como branca */
-    position: relative; /* Define a posição do container de desejos como relativa */
-    width: 350px; /* Define a largura do container */
-}
-
-.feliz,
-.natal {
-    position: relative; /* Define a posição dos textos 'feliz' e 'natal' como relativa */
-    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites */
-}
-
-.feliz {
-    top: 0; /* Posiciona o texto 'feliz' no topo do container */
-    height: 30px; /* Define a altura do texto 'feliz' */
-}
-
-.natal {
-    top: 0; /* Posiciona o texto 'natal' no topo do container */
-    height: 60px; /* Define a altura do texto 'natal' */
-}
-
-.feliz:before,
-.natal:before {
+    position: absolute; /* Posicionamento absoluto dentro do cartão */
+    color: #005F1C; /* Cor verde para o texto */
+    top: 150px; /* Posicionamento vertical */
+    width: 450px; /* Largura para alinhamento do texto */
     text-align: center; /* Centraliza o texto horizontalmente */
-    width: 450px; /* Define a largura dos pseudo-elementos */
-    position: absolute; /* Posiciona os pseudo-elementos de forma absoluta */
+    font-size: 65px; /* Tamanho do texto */
+    font-family: 'Ephesis', cursive; /* Tipo de fonte para o texto */
 }
 
-@keyframes slideUp {
-    /* Animação para subir o texto 'feliz' */
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-30px); opacity: 1; }
+/* Estilos para subtexto dentro do cartão */
+.subtext {
+    position: absolute; /* Posicionamento absoluto dentro do cartão */
+    color: white; /* Cor branca para o texto */
+    top: 250px; /* Posicionamento vertical */
+    width: 450px; /* Largura para alinhamento do texto */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-size: 20px; /* Tamanho do texto */
+    font-family: 'Poppins'; /* Tipo de fonte para o texto */
 }
 
-@keyframes slideUp2 {
-    /* Animação para subir o texto 'natal' */
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-40px); opacity: 1; }
-}
-
+/* Animação para o movimento de queda dos flocos de neve */
 @keyframes fall {
-    /* Animação para o movimento de queda dos flocos de neve */
-    0% { top: -50px; }
-    100% { top: 900px; }
+    0% {
+        top: -50px; /* Inicia acima do topo do cartão */
+    }
+    100% {
+        top: 900px; /* Termina abaixo do fundo do cartão */
+    }
 }
 
-.feliz:before {
-    content: "FELIZ"; /* Define o conteúdo do pseudo-elemento como 'FELIZ' */
-    font-size: 45px; /* Define o tamanho da fonte */
-    top: 20px; /* Posiciona o pseudo-elemento verticalmente */
-    animation: slideUp ease .4s forwards .4s; /* Aplica a animação 'slideUp' */
+/* Estilos para o cartão de natal 3D */
+.christmas-card {
+    position: relative; /* Posicionamento relativo para a estrutura 3D */
+    width: 450px; /* Largura do cartão */
+    height: 500px; /* Altura do cartão */
+    transform-style: preserve-3d; /* Preserva o estilo 3D para os filhos */
+    transform: perspective(2500px); /* Perspectiva para o efeito 3D */
+    transition: 3s; /* Transição suave para transformações */
 }
 
-.natal:before {
-    content: "NATAL"; /* Define o conteúdo do pseudo-elemento como 'NATAL' */
-    font-size: 60px; /* Define o tamanho da fonte */
-    top: 47px; /* Posiciona o pseudo-elemento verticalmente */
-    animation: slideUp2 ease .4s forwards .8s; /* Aplica a animação 'slideUp2' */
+/* Esconde o checkbox usado para abrir o cartão */
+input#open {
+    display: none; /* Esconde o input */
+}
+
+/* Estilos para a frente do cartão */
+.card-front {
+    position: relative; /* Posicionamento relativo para os filhos */
+    background-color: #fff; /* Cor de fundo branca para a frente do cartão */
+    width: 450px; /* Largura do cartão */
+    height: 500px; /* Altura do cartão */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassa os limites */
+    transform-origin: left; /* Origem da transformação para o lado esquerdo */
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1); /* Sombra interna e externa para efeito visual */
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: .3s; /* Transição suave para transformações */
+}
+
+/* Estilos para o interior do cartão */
+.card-inside {
+    position: absolute; /* Posicionamento absoluto em relação ao `.christmas-card` */
+    background-color: #fff; /* Cor de fundo branca para o interior do cartão */
+    width: 450px; /* Largura do cartão */
+    height: 500px; /* Altura do cartão */
+    z-index: -1; /* Posiciona abaixo da frente do cartão */
+    left: 0; /* Alinhado à esquerda do contêiner */
+    top: 0; /* Alinhado ao topo do contêiner */
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13); /* Sombra interna para efeito visual */
+    border-radius: 10px; /* Bordas arredondadas */
+    background-color: #9eecf1; /* Cor de fundo azul claro para o interior do cartão */
+}
+
+/* Estilos para o texto 'Clique para abrir' */
+.click-to-open {
+    position: absolute; /* Posicionamento absoluto dentro do cartão */
+    color: white; /* Cor branca para o texto */
+    top: 200px; /* Posicionamento vertical */
+    width: 450px; /* Largura para alinhamento do texto */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-size: 35px; /* Tamanho do texto */
+    font-family: 'Ephesis', cursive; /* Tipo de fonte para o texto */
+}
+
+/* Estilos para a área clicável que abre o cartão */
+.open {
+    position: absolute; /* Posicionamento absoluto em relação ao `.christmas-card` */
+    width: 450px; /* Largura do cartão */
+    height: 500px; /* Altura do cartão */
+    left: 0; /* Alinhado à esquerda do contêiner */
+    top: 0; /* Alinhado ao topo do contêiner */
+    background-color: transparent; /* Cor de fundo transparente */
+    z-index: 6; /* Garante que está acima de outros elementos para ser clicável */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+/* Estilos para a frente do cartão quando o checkbox está marcado (cartão aberto) */
+#open:checked~.card-front {
+    transform: rotateY(-155deg); /* Gira a frente do cartão para 'abrir' */
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1); /* Sombra para efeito visual */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Ajusta o z-index do pseudo-elemento da frente do cartão quando aberto */
+#open:checked~.card-front:before {
+    z-index: 5; /* Posiciona acima de outros elementos internos quando o cartão está aberto */
 }

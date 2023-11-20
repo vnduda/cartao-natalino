@@ -1,14 +1,25 @@
-// Função para criar flocos de neve
 function createSnow() {
-    const snow = document.createElement("div")
-    snow.classList.add("snow")
-    snow.style.left = Math.random() * 100 + "vw"
-    snow.style.animationDuration = Math.random() + 2 + 3 + "s"
-    snow.innerText = "❄"
-    document.body.appendChild(snow)
+    const snowFlake = document.createElement("div");
+    snowFlake.classList.add("snow");
+    snowFlake.innerText = "❄";
+    // Define o posicionamento horizontal aleatório e a duração da animação
+    snowFlake.style.left = Math.random() * 100 + "%";
+    snowFlake.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+    // Selecionar o elemento .card para anexar o floco de neve
+    const card = document.querySelector('.card');
+    card.appendChild(snowFlake);
+
+    // Remover o floco de neve depois que a animação estiver completa
+    // O tempo de remoção deve ser igual ao 'animationDuration' definido acima
+    let animationDuration = parseFloat(snowFlake.style.animationDuration);
+    setTimeout(() => {
+        snowFlake.remove();
+    }, animationDuration * 1000); // Converte para milissegundos
 }
 
-setInterval(createSnow, 500); // Cria um floco de neve a cada 500ms
+// Continuar criando flocos de neve a cada intervalo
+setInterval(createSnow, 500);
 
 // Animações GSAP
 let tl = gsap.timeline({ default: { duration: .65 } })
